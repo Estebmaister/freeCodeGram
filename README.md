@@ -71,7 +71,7 @@ composer global require laravel/installer
 laravel new freeCodeGram
 ```
 
-Edit php --init
+Edit php --init and uncomment extension=fileinfo
 
 ```sh
 cd freeCodeGram
@@ -82,4 +82,21 @@ composer require laravel/ui
 php artisan ui:auth
 php artisan ui:vue
 npm i && npm run dev
+nul >database/database.sqlite
+```
+
+Delete the DB\_... lines in .env file
+Declare DB_CONNECTION=sqlite in .env file
+Edit php --init and uncomment extension=pdo_sqlite
+
+```sh
+php artisan migrate
+php artisan serve
+```
+
+Create a new user
+
+```sh
+php artisan migrate
+php artisan serve
 ```
