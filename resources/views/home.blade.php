@@ -16,6 +16,14 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <h1>{{ $user -> username}}</h1>
+                        <p><?=$user?></p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
