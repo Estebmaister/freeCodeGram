@@ -95,8 +95,22 @@ php artisan serve
 ```
 
 Create a new user
+Modified files for add username field
+files: register.blade.php, ...create_users_table.php, RegisterController.php
 
 ```sh
-php artisan migrate
-php artisan serve
+php artisan tinker
+>>> User::all();
+>>> exit
+php artisan migrate:fresh
+```
+
+Create a new user
+Modified files for add username field
+files: app/User.php
+
+```sh
+php artisan tinker
+>>> User::all();
+>>> exit
 ```
