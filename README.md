@@ -186,4 +186,7 @@ Add the corresponding methods to User.php and Profile.php
 composer require laravel/telescope
 php artisan telescope:install
 php artisan migrate
+# php artisan telescope:clear
 ```
+
+Edit the Views to store some cache data, and changing the ProfilesController.php

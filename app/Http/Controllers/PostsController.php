@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -13,14 +14,14 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
-    // public function index()
-    // {
-    //     $users = auth()->user()->following()->pluck('profiles.user_id');
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        // the with('user') makes one query in the database instead of queries for every unique post
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
 
-    //     $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
-
-    //     return view('posts.index', compact('posts'));
-    // }
+        return view('posts.index', compact('posts'));
+    }
 
     public function create()
     {
