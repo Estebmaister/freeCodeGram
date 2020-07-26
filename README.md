@@ -178,3 +178,12 @@ php artisan make:migration creates_profile_user_pivot_table --create profile_use
 # Edit the two factors in the table
 php artisan migrate
 ```
+
+Edit the Vue component: follow-button
+Add the corresponding methods to User.php and Profile.php
+
+```sh
+composer require laravel/telescope
+php artisan telescope:install
+php artisan migrate
+```
