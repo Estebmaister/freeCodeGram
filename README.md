@@ -161,3 +161,15 @@ Adding method edit and update to ProfileController
 ```sh
 php artisan make:policy ProfilePolicy -m Profile
 ```
+
+Make edits in the files web.php, ProfilePolicy.php, ProfilesController, index.blade.php and ...create_profiles_table.php
+
+```sh
+php artisan migrate:fresh
+```
+
+Added new Vue component: follow-button
+
+```sh
+npm run dev
+```
