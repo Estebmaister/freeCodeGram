@@ -168,8 +168,13 @@ Make edits in the files web.php, ProfilePolicy.php, ProfilesController, index.bl
 php artisan migrate:fresh
 ```
 
+Added new function in ProfilesController for default profile picture
 Added new Vue component: follow-button
 
 ```sh
 npm run dev
+php artisan make:controller FollowsController
+php artisan make:migration creates_profile_user_pivot_table --create profile_user
+# Edit the two factors in the table
+php artisan migrate
 ```
