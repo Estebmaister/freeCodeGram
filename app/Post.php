@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Post extends Model
 {
     protected $guarded = []; // The guarded is done in the controller
 

@@ -19,10 +19,12 @@
 
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <h1>{{ $user -> username}}</h1>
-                        <p><?=$user?></p>
-                    @endif
+                    <h1>{{ Auth::user()->username }}</h1>
+                    <p>{{ Auth::user() -> profile -> title }}</p>
+                    <p><?=Auth::user() -> profile -> description ?></p>
+                    <a href="#"><p><?=Auth::user() -> profile -> url ?></p></a>
+                    <p><?=Auth::user() -> name ?></p>
+                    <p><?=Auth::user() -> email ?></p>
                 </div>
             </div>
         </div>

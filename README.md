@@ -91,11 +91,7 @@ Edit controller ProfilesController.php and files: app.blade.php, web.php, home.b
 
 ```sh
 php artisan make:model Profile -m
-```
-
-Edit ...create_profiles_table.php
-
-```sh
+# Edit ...create_profiles_table.php
 php artisan migrate
 ```
 
@@ -111,4 +107,57 @@ php artisan tinker
 >>> $profile -> user;
 >>> $user = App\User::find(1);
 >>> $user -> profile;
+>>> $user -> profile -> url = 'freecodecamp.org';
+>>> $user -> push();    # Saves all the changes and relationships modified
+>>> exit                # The simple -> doesn't work here
+```
+
+Edit ProfilesController.php to method ::findOrFail();
+
+```sh
+php artisan make:model Post -m
+# Edit ...create_posts_table.php
+php artisan migrate
+php artisan make:controller PostsController
+```
+
+Add methods create and store to PostsController
+Add post route "/" for store with PostsController
+Add a new post for a user
+Verified it in tinker
+
+```sh
+php artisan tinker
+>>> Post::all();
+>>> exit
+```
+
+Change the method to store the image, because we are only saving a storage class of the image
+
+```sh
+php artisan storage:link
+# This command only have to be run once to create a symbolic link
+# from "public/storage" to "storage/app/public"
+```
+
+Now delete the previous posts with tinker
+
+```sh
+php artisan tinker
+>>> Post::truncate();
+>>> exit
+```
+
+Adding a new library to manipulate images
+
+```sh
+composer require intervention/image
+# The package is automatically discovered but we need
+# Edit php.ini and uncomment extension=gd2
+```
+
+Adding method edit and update to ProfileController
+
+```sh
+php artisan make:policy ProfilePolicy -m Profile
 ```
