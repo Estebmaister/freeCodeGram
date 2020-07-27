@@ -190,3 +190,16 @@ php artisan migrate
 ```
 
 Edit the Views to store some cache data, and changing the ProfilesController.php
+Create mail functionality
+
+```sh
+php artisan make:mail NewUserWelcomeMail -m emails.welcome-email
+# Edit the two factors in the table
+```
+
+# To-Do List
+
+-   Make an edit route for posts
+-   Make auto-follow to one master user on register
+-   Make comments available
+-   [check] Make public profiles
